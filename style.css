@@ -1,5 +1,5 @@
 :root {
-  --forest: #182c1e;
+  --forest: #12381e;
   --moss: #4a5e3a;
   --fern: #5c8b58;
   --leaf: #82ca73;
@@ -161,16 +161,16 @@ nav {
 
 .hero-bg {
   position: absolute;
-  inset: -20px;
+  inset: 0;
   width: calc(100% + 40px);
   height: calc(100% + 40px);
-  background-image: url('images/venti-views-Vs5ciaxG1Cs-unsplash.jpg');
+  background-image: url('https://github.com/krfowler415/portfolio/blob/main/images/venti-views-Vs5ciaxG1Cs-unsplash.jpg?raw=true');
   background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(0.8);
   z-index: 0;
-  transition: transform 0.1s ease-out;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .hero::before {
@@ -280,13 +280,6 @@ nav {
   z-index: 1;
 }
 
-.hero-actions {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: up 0.5s ease forwards 0.8s;
-}
 .hero-line {
   font-size: clamp(3.5rem, 10vw, 8rem);
   font-weight: 400;
@@ -596,129 +589,8 @@ nav {
   text-transform: uppercase;
   color: rgba(228, 238, 224, 0.35);
 }
-/* mock */
-.mock {
-  width: 100%;
-  max-width: 330px;
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.55);
-  position: relative;
-  z-index: 1;
-  font-family: var(--sans);
-}
-.mn {
-  background: #fff;
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid #eee;
-}
-.mlo {
-  font-size: 11px;
-  font-weight: 800;
-  color: #1a3c8c;
-}
-.mlo b {
-  color: #f5a623;
-}
-.mba {
-  flex: 1;
-  background: #f4f4f4;
-  border-radius: 3px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  padding: 0 8px;
-  font-size: 8px;
-  color: #aaa;
-}
-.mts {
-  display: flex;
-  border-bottom: 1px solid #eee;
-}
-.mta {
-  flex: 1;
-  padding: 5px 0;
-  text-align: center;
-  font-size: 7.5px;
-  font-weight: 600;
-  color: #ccc;
-  letter-spacing: 0.03em;
-}
-.mta.on {
-  color: #1a3c8c;
-  border-bottom: 2px solid #1a3c8c;
-}
-.mbd {
-  padding: 8px;
-}
-.mr {
-  background: #f8f8f8;
-  border-radius: 5px;
-  padding: 7px 8px;
-  margin-bottom: 6px;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto;
-  gap: 2px;
-  align-items: center;
-}
-.mr.sel {
-  background: #fff9ed;
-  border: 1.5px solid #f5a623;
-}
-.mtt {
-  font-size: 9.5px;
-  font-weight: 700;
-  color: #111;
-}
-.maa {
-  font-size: 6px;
-  color: #bbb;
-  margin-top: 1px;
-}
-.mst {
-  text-align: center;
-  font-size: 6.5px;
-  font-weight: 700;
-  padding: 1.5px 4px;
-  border-radius: 7px;
-}
-.ns {
-  background: #d1fae5;
-  color: #065f46;
-}
-.s1 {
-  background: #fef3c7;
-  color: #92400e;
-}
-.mpr {
-  font-size: 9.5px;
-  font-weight: 700;
-  color: #111;
-  text-align: right;
-}
-.mbk {
-  background: #f5a623;
-  color: #fff;
-  font-size: 6.5px;
-  font-weight: 700;
-  padding: 2.5px 6px;
-  border-radius: 3px;
-  text-align: center;
-}
-.mcp {
-  background: #1a3c8c;
-  color: #fff;
-  font-size: 7.5px;
-  font-weight: 600;
-  padding: 7px 10px;
-  text-align: center;
-  letter-spacing: 0.04em;
-}
 
+/* cards */
 .card-body {
   padding: 2.5rem;
   display: flex;
@@ -971,16 +843,8 @@ a.h-card:hover .c-link::after { width: 100%; }
   color: var(--moss);
   font-weight: 600;
 }
-.pull-q {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 1.5rem;
-  color: var(--fern);
-  line-height: 1.55;
-  border-left: 2px solid var(--amber);
-  padding-left: 1.25rem;
-  margin: 0.5rem 0;
-}
+
+/* ── STAT ── */
 .stat-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1007,39 +871,7 @@ a.h-card:hover .c-link::after { width: 100%; }
   color: var(--mid);
   line-height: 1.45;
 }
-.skills-col {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-.sk-lbl {
-  font-family: var(--display);
-  font-size: 0.66rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--light);
-  margin-bottom: 0.45rem;
-}
-.sk-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
-}
-.sk-pill {
-  font-size: 0.75rem;
-  padding: 0.28rem 0.7rem;
-  border-radius: 20px;
-  background: var(--tint);
-  border: 1px solid var(--border);
-  color: var(--mid);
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-.sk-pill:hover {
-  background: var(--clay);
-  color: var(--forest);
-  border-color: var(--clay);
-}
+
 
 /* ── CONTACT ── */
 .c-band {
@@ -1077,6 +909,7 @@ a.h-card:hover .c-link::after { width: 100%; }
   flex-wrap: wrap;
   gap: 0.6rem;
 }
+
 .c-btns .btn-ghost {
   text-decoration: underline;
   text-underline-offset: 3px;
