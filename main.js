@@ -71,14 +71,19 @@ function tick() {
   requestAnimationFrame(tick);
 }
 
-// ── Mouse Parallax Hero ────────────────────────────────────────
 
+// ── Mouse Parallax ────────────────────────────────────────
 const heroEl = document.getElementById('hero');
 heroEl.addEventListener('mousemove', (e) => {
   const r = canvas.getBoundingClientRect();
   mouse.x = e.clientX - r.left;
   mouse.y = e.clientY - r.top;
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) heroBg.style.transform = `translate(${x}px, ${y}px)`;
 });
+
 heroEl.addEventListener('mouseleave', () => {
   mouse.x = -9999;
   mouse.y = -9999;
@@ -101,34 +106,12 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 
-// ── Parallax ────────────────────────────────────────
-const pxLayers = document.querySelectorAll('.px-layer[data-speed]');
-window.addEventListener(
-  'scroll',
-  () => {
-    const sy = window.scrollY;
-    pxLayers.forEach((el) => {
-      const speed = parseFloat(el.dataset.speed);
-      el.style.transform = `translateY(calc(-50% + ${sy * speed * 60}px))`;
-    });
-    const hc = document.querySelector('.hero-content');
-    if (hc) hc.style.transform = `translateY(${sy * 0.15}px)`;
-  },
-  { passive: true },
-);
+// ── Hero content scroll parallax ────────────────────
+window.addEventListener('scroll', () => {
+  const hc = document.querySelector('.hero-content');
+  if (hc) hc.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+}, { passive: true });
 
-// ── Mouse Parallax ────────────────────────────────────────
-heroEl.addEventListener('mousemove', (e) => {
-  const r = canvas.getBoundingClientRect();
-  mouse.x = e.clientX - r.left;
-  mouse.y = e.clientY - r.top;
-
-  // Background parallax on mouse move
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
-  const heroBg = document.querySelector('.hero-bg');
-  if (heroBg) heroBg.style.transform = `translate(${x}px, ${y}px)`;
-});
 
 // ── Cursor ──────────────────────────────────────────
 const cur = document.getElementById('cur');
