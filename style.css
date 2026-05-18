@@ -1077,6 +1077,14 @@ a.h-card:hover .c-link::after { width: 100%; }
   flex-wrap: wrap;
   gap: 0.6rem;
 }
+.c-btns .btn-ghost {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(228,238,224,0.2);
+}
+.c-btns .btn-ghost:hover {
+  text-decoration: none;
+}
 
 /* ── FOOTER ── */
 footer {
